@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>jQuery</title>
+<link rel="stylesheet" href="../../common/css/reset.css">
+<link rel="stylesheet" href="../../common/css/base.css">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="container">
+    <div class="header">
+      <p class="header__title">Search Books!</p>
+    </div>
+    <div class="search">
+      <div class="search__text">
+        <input type="text" id="js-search-word" class="search__text__input" placeholder="検索する">
+      </div>
+      <button id="js-search-button" class="search__btn">検索する</button>
+    </div>
+    <ul class="lists"></ul>
+  </div>
+</div>
+<script src="../../common/js/jquery.js"></script>
+<script>
+// 楽天ブックスの総合検索APIを使って製作してください。
+// answerの挙動を良く見てね！
+//
+// https://webservice.rakuten.co.jp/api/booksbooksearch/
+//
+// $.ajax と $.each を調べてみてください
+// 以下は今回使う$.ajaxの基本的な形です。
+//
+// $.ajaxによってデータが取得できたら、必要なデータ(作品名とか作者名とか)を取得します。
+// 取得できたらDOM上に<ul class='lists'></ul>を用意しているので、その中に下のテンプレに沿ってデータを入れ込みましょう。
+// <li class='lists__item'>
+//  <div class='lists__item__inner'>
+//    <a href='' class='lists__item__link' target='_blank'>
+//      <img src='' class='lists__item__img' alt=''>
+//      <p class='lists__item__detail'>作品名：</p>
+//      <p class='lists__item__detail'>作者　：</p>
+//      <p class='lists__item__detail'>出版社：</p>
+//    </a>
+//  </div>
+// </li>
+//
+// オブジェクトで取得したデータへのアクセス方法 以下参考程度に
+// http://qiita.com/marumaru8228/items/65fc684383b096f0e548
+//
+//
+  // $.ajax({
+  //   url: 'https://app.rakuten.co.jp/services/api/BooksTotal/Search/20130522',
+  //   type: 'GET',
+  //   datatype: 'json',
+  //   data: {
+  //     // 「区分:サービス固有パラメーター」を確認して、必要な情報をdata内に入れましょう。
+  //     applicationId: '1019399324990976605', // (今回はこのIDを使用してください)
+  //     booksGenreId: '001'
+  //   },
+  // }).done(function(data) {
+  //   // この中にデータ取得後の動きを記述していきます。
+  // });
+//
+</script>
+</body>
+</html>
