@@ -13,7 +13,7 @@
 <div class="wrapper">
   <form class="register">
     <div class="input-wrapper">
-      <input type="text" class="input" placeholder="Input Your Name.">
+      <input type="text" class="input" placeholder="Input Your Name." maxlength="30">
       <p class="rest-count">30</p>
     </div>
     <button class="register-btn">Register</button>
@@ -21,6 +21,17 @@
 </div>
 <script src="../../common/js/jquery.js"></script>
 <script>
+  $(function(){
+  $("input").keyup(function(){
+    var maxChars = $(this).attr("maxlength");
+    var counter = $(this).val().length;
+    $(".rest-count").text(maxChars - counter);
+    if(counter == maxChars){
+      $(".rest-count").text("0");
+      jQuery('.rest-count').addClass('red');
+    };
+  });
+  });
 // 今回やるのは文字数チェッカーです。
 // .input に文字を入力し、文字を入力した段階でその文字数に応じて .rest-count の値が減っていき、最大文字数である30文字以上入力すると .rest-count に .red クラスが追加されて文字色が赤くなり、30文字以内になると、.red クラスが外れ、文字色が元に戻る。（ちなみに改行は文字数に含まない。）
 // .keyup() 文字入力後に発火されるイベントです。

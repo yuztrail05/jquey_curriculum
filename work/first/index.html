@@ -68,7 +68,63 @@
   </div>
 </div>
 <script src="../../common/js/jquery.js"></script>
-<script>
+  <script>
+    $('#q1').click(function(){
+      $('#q1').css('color','red');
+    });
+
+    $('#q2').click(function(){
+      $('#q2').css('background-color','pink');
+    });
+
+    $('#q3').click(function(){
+      $('#q3').fadeOut("slow");
+    });
+　　
+
+    $('#q4').click(function() {
+    $(this).prepend('DOMの中の前')
+           .append('DOMの中の後')
+           .before('DOMの前')
+           .after('DOMの後');
+  });
+
+    $('#q5').click(function() {
+      $('#q5').css('font-size','large');
+    });
+
+    $('#q6').click(function(){
+      $('#q6').animate({
+        "marginLeft": "100px"
+      }, { duration: 2000, easing: 'swing', }).animate({
+          "marginTop": "100px"
+      }, { duration: 2000, easing: 'swing',queue: false });
+  });
+
+  $('#q7').find('li').click(function() {
+    var targetNum = $(this).index();
+    console.log(targetNum);
+    alert(targetNum);
+
+    $('#q8').mouseover(function() {
+      $('#q8').css('font-size','large');
+    })
+            .mouseout(function() {
+      $('#q8').css('font-size','medium');
+    });
+
+    $('#q9').click(function() {
+    var text = $(this).data('text');
+    console.log(text);
+  });
+
+  　$('#q10').find('li').click(function() {
+    var num = $(this).index();
+
+
+    $('#q11').find('li').eq(num).addClass('large');
+  });
+
 // 第1問  id='q1'の要素の文字色を赤色にせよ。
 // 第2問  id='q2'の要素をクリックしたら背景色をピンクにせよ。
 // 第3問  id='q3'の要素をクリックしたら2秒かけてフェードアウトさせよ。

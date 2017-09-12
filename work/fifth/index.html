@@ -84,6 +84,10 @@
 </div>
 <script src="../../common/js/jquery.js"></script>
 <script>
+  $('option').click(function(){
+    var score = $('.select').val();
+    alert(score);
+      });
 // 今回やるのはソート機能です。
 // selectボックスをクリックして言語を選び、その言語と関係のあるリストだけが表示されるプログラムです。
 // [処理の流れ]

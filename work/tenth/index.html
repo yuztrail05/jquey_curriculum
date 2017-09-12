@@ -26,6 +26,28 @@
 </div>
 <script src="../../common/js/jquery.js"></script>
 <script>
+  $(function() {
+  var $colorList = $('.colorList');
+
+  $.ajax({
+    url: './data.json'
+  })
+  .done(function(data) {
+    var colorsArray = data.colorsArray;
+    var colorsArrayLength = colorsArray.length;
+    var template = '';
+
+    for (var i = 0, i < colorsArrayLength; i++) {
+      template +=
+        '<li class="colorList__item">' +
+          '<p class="colorList__title" style="background-color: ' + colorsArray[i].hexValue + ';">' +
+            colorsArray[i].colorName +
+          '</p>' +
+        '</li>';
+    }
+    $colorList.html(template);
+  });
+});
 // 楽天ブックスの総合検索APIを使って製作してください。
 // answerの挙動を良く見てね！
 //

@@ -24,6 +24,13 @@
 </div>
 <script src="../../common/js/jquery.js"></script>
 <script>
+  $(function() {
+    $('.nav li').click(function() {
+        var tabnum = $('.nav li').index(this);
+        $('.contents li').css('display','none');
+        $('.contents li').eq(tabnum).css('display','block');
+    });
+});
 // 今回やるのはタブメニューです。
 // navの小要素であるliをクリックして、contents内の小要素であるli要素を表示させる。
 // .index() 要素のindexを取得します。

@@ -26,9 +26,48 @@
 </div>
 <script src="../../common/js/jquery.js"></script>
 <script>
-// 今回やるのはスライドショーです。
-// 右方向には右のボタンを押すと移動し、左方向には左のボタンを押すと移動する。また右端にいる状態で右のボタンを押すと最初の位置に戻り、 左端にいる状態で左のボタンを押すと最後の位置に移動する。data属性にprev,nextを記述してあるのでこちらを取得すると楽です。
-// 位置情報は配列に格納しておき、右のボタンをクリックするたびに配列の添字を1追加し、左のボタンをクリックすると配列の添字を1減らします。そうすることによって次の座標が取得できます。その座標にアニメーションさせるととても楽です。
+ $(function(){
+	var dir = -1;
+  var interval = 30000;
+  var duration = 700;
+	var timer;
+	$("ul").prepend($("li:last-child"));
+	$("ul").css("left", -600);
+	timer = setInterval(slideTimer, interval);
+	
+	function slideTimer(){ 
+		if(dir == -1){
+			$("ul").animate({"left" : "-=600px" }, duration, function(){
+				$(this).append($("li:first-child"));
+				$(this).css("left", -600);
+			});
+		}else{
+			$("ul").animate({"left" : "+=600px" }, duration, function(){
+				$(this).prepend($("li:last-child"));
+				$(this).css("left", -600);
+				dir = -1;
+			});
+		}
+	}
+
+	$(".is-prev").click(function(){
+		dir = 1;
+		clearInterval(timer);
+		timer = setInterval(slideTimer, interval);
+		
+	
+		slideTimer();
+	});
+	
+	
+	$(".is-next").click(function(){
+		dir = -1;
+		clearInterval(timer);
+		timer = setInterval(slideTimer, interval);
+		
+		slideTimer();
+	});
+});
 // [使用するメソッド]
 // .animate({}) cssのプロパティを一定時間かけて変化させます。アニメーションです。
 // .data() 要素のdata属性を取得します。

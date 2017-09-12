@@ -28,6 +28,22 @@
 </div>
 <script src="../../common/js/jquery.js"></script>
 <script>
+  $(function() {
+ 
+    $(".menu__btn").click(function () {
+        var i = $(".menu__btn").index(this)
+        var p = $(".title").eq(i).offset().top;
+        $('html,body').animate({ scrollTop: p },);
+        return false;
+    });
+
+    $(".body").click(function () {
+        $('html,body').animate({ scrollTop: 0 },);
+        return false;
+    });
+ 
+});
+
 // 今回やるのはページ内スクロールです。
 // 左上にあるメニューを押して、そのタイトルと同じ位置までスクロールするアニメーションです。
 // また100pxほどスクロールすると右下にボタンがフェードインします。
