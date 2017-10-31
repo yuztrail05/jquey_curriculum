@@ -84,10 +84,14 @@
 </div>
 <script src="../../common/js/jquery.js"></script>
 <script>
-  $('option').click(function(){
-    var score = $('.select').val();
-    alert(score);
-      });
+$(function(){
+  var a=$(".select"),b=$(".list").find("li");
+      a.on("change",function(){
+        var a=$(this).val();
+        return"all"===a?void b.show():(b.hide(),void b.each(function(){
+          var b=$(this).data("category-type");
+        a===b&&$(this).show()
+        }))})});
 // 今回やるのはソート機能です。
 // selectボックスをクリックして言語を選び、その言語と関係のあるリストだけが表示されるプログラムです。
 // [処理の流れ]
